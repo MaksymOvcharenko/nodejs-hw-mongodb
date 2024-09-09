@@ -22,7 +22,7 @@ export const setupServer = () => {
 
   app.get('/', (req, res) => {
     res.json({
-      message: 'Hello world!',
+      message: 'Please enter /students for url!',
     });
   });
   app.get('/students', async (req, res) => {

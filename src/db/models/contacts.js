@@ -1,29 +1,29 @@
 // src/db/models/student.js
 import { model, Schema } from 'mongoose';
 
-const studentsSchema = new Schema(
+const contactsSchema = new Schema(
   {
     name: {
       type: String,
       required: true,
     },
-    age: {
-      type: Number,
-      required: true,
-    },
-    gender: {
+    phoneNumber: {
       type: String,
       required: true,
-      enum: ['male', 'female', 'other'],
     },
-    avgMark: {
-      type: Number,
-      required: true,
+    email: {
+      type: String,
     },
-    onDuty: {
+    isFavourite: {
       type: Boolean,
       required: true,
       default: false,
+    },
+    contactType: {
+      type: String,
+      required: true,
+      enum: ['work', 'home', 'personal'],
+      default: 'personal',
     },
   },
   {
@@ -31,4 +31,4 @@ const studentsSchema = new Schema(
     versionKey: false,
   },
 );
-export const StudentsCollection = model('students', studentsSchema);
+export const ContactsCollection = model('contacts', contactsSchema);

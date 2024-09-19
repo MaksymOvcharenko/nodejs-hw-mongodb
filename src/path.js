@@ -1,4 +1,4 @@
-import { log } from 'node:console';
+// import { log } from 'node:console';
 import path from 'node:path';
 
 // приклад для побудови шляху із його частин

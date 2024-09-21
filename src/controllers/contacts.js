@@ -32,7 +32,7 @@ export const getContactByIdController = async (req, res, next) => {
   // Відповідь, якщо контакт знайдено
   res.status(200).json({
     status: 200,
-    message: `Contact with ID: ${contactId} found`
+    message: `Contact with ID: ${contactId} found`,
     data: contact,
   });
 };

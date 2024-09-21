@@ -12,6 +12,7 @@ export const getAllContactsController = async (req, res) => {
   console.log(contacts);
 
   res.status(200).json({
+    status: 200,
     message: 'Successfully found contacts!',
     data: contacts,
   });
@@ -30,6 +31,8 @@ export const getContactByIdController = async (req, res, next) => {
 
   // Відповідь, якщо контакт знайдено
   res.status(200).json({
+    status: 200,
+    message: `Contact with ID: ${contactId} found`
     data: contact,
   });
 };

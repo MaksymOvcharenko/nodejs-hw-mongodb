@@ -4,8 +4,8 @@ import express from 'express';
 import pino from 'pino-http';
 import cors from 'cors';
 import { env } from './utils/env.js';
-
-import contactsRouters from './routers/contacts.js';
+import cookieParser from 'cookie-parser';
+import routers from './routers/index.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandlerMiddleware } from './middlewares/errorHandler.js';
 const PORT = Number(env('PORT', '3000'));
@@ -14,6 +14,7 @@ export const setupServer = () => {
 
   app.use(express.json());
   app.use(cors());
+  app.use(cookieParser());
 
   app.use(
     pino({
@@ -28,7 +29,7 @@ export const setupServer = () => {
       message: 'Please enter /contacts for url!',
     });
   });
-  app.use(contactsRouters);
+  app.use(routers);
   app.use('*', notFoundHandler);
   app.use(errorHandlerMiddleware);
 

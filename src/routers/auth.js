@@ -5,6 +5,7 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
   loginUserController,
   logoutUserController,
+  refreshUserSessionController,
   registerUserController,
 } from '../controllers/auth.js';
 
@@ -23,5 +24,10 @@ router.post(
   '/logout',
 
   ctrlWrapper(logoutUserController),
+);
+router.post(
+  '/refresh',
+
+  ctrlWrapper(refreshUserSessionController),
 );
 export default router;

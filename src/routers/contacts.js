@@ -14,12 +14,18 @@ import {
 } from '../validation/contacts.js';
 import { isValidId } from '../validation/isValidId.js';
 import { authenticate } from '../middlewares/authenticate.js';
+import { checkUserId } from '../services/checkUserId.js';
 
 const router = Router();
 router.use(authenticate);
-router.get('/', ctrlWrapper(getAllContactsController));
+router.get('/', checkUserId, ctrlWrapper(getAllContactsController));
 
-router.get('/:contactId', isValidId, ctrlWrapper(getContactByIdController));
+router.get(
+  '/:contactId',
+  checkUserId,
+  isValidId,
+  ctrlWrapper(getContactByIdController),
+);
 
 router.post(
   '/',

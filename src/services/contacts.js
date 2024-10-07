@@ -46,8 +46,12 @@ export const getAllContacts = async ({
   };
 };
 
-export const getContactById = async (contactId) => {
-  const contact = await ContactsCollection.findById(contactId);
+export const getContactById = async (payload) => {
+  // const contact = await ContactsCollection.findOne({
+  //   _id: payload._id,
+  //   userId: payload.userId,
+  // });
+  const contact = await ContactsCollection.findById(payload);
   if (!contact) {
     throw createHttpError(404, 'Contact not found');
   }

@@ -33,9 +33,16 @@ export const getAllContactsController = async (req, res) => {
 };
 export const getContactByIdController = async (req, res, next) => {
   const { contactId } = req.params;
+
   const contact = await getContactById(contactId);
 
-  // Відповідь, якщо контакт не знайдено
+  if (contact.userId.toString() !== req.user._id.toString()) {
+    res.status(401).json({
+      status: 401,
+      message: 'You do not have access rights to this contact',
+    });
+    return;
+  }
   if (!contact) {
     res.status(404).json({
       message: 'Contact not found',

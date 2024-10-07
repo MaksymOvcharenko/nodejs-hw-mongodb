@@ -29,11 +29,13 @@ router.get(
 
 router.post(
   '/',
+  checkUserId,
   validateBody(crateContactSchema),
   ctrlWrapper(createContactController),
 );
 router.patch(
   '/:contactId',
+  checkUserId,
   isValidId,
   validateBody(updateContactSchema),
   ctrlWrapper(patchContactController),

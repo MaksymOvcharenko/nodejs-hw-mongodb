@@ -23,6 +23,7 @@ export const getAllContactsController = async (req, res) => {
     sortOrder,
     sortBy,
     filter,
+    userId: req.user._id.toString(),
   });
 
   res.status(200).json({
@@ -59,7 +60,6 @@ export const getContactByIdController = async (req, res, next) => {
 };
 export const createContactController = async (req, res, next) => {
   const reqData = { ...req.body, userId: req.user._id };
-  console.log(reqData);
 
   const contact = await createContact(reqData);
   res.status(201).json({
@@ -71,9 +71,16 @@ export const createContactController = async (req, res, next) => {
 export const patchContactController = async (req, res, next) => {
   const { contactId } = req.params;
   // console.log(req.params);
-
   const { body } = req;
+  const contactCheck = await getContactById(contactId);
 
+  if (contactCheck.userId.toString() !== req.user._id.toString()) {
+    res.status(401).json({
+      status: 401,
+      message: 'You do not have access rights to this contact',
+    });
+    return;
+  }
   const { contact } = await updateContact(contactId, body);
   console.log(contact);
 
@@ -85,6 +92,15 @@ export const patchContactController = async (req, res, next) => {
 };
 export const deleteContactController = async (req, res) => {
   const { contactId } = req.params;
+  const contactCheck = await getContactById(contactId);
+
+  if (contactCheck.userId.toString() !== req.user._id.toString()) {
+    res.status(401).json({
+      status: 401,
+      message: 'You do not have access rights to this contact',
+    });
+    return;
+  }
   const contact = await deleteContact(contactId);
   if (!contact) {
     throw createHttpError(404, 'Contact not found');

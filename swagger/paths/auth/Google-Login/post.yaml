@@ -4,6 +4,8 @@ summary: Confirm Google OAuth
 description: |
   Confirm Google OAuth by sending the authorization code obtained after user authentication.
   Returns an access token if the authentication is successful.
+
+security: []
 requestBody:
   description: Google OAuth code
   required: true

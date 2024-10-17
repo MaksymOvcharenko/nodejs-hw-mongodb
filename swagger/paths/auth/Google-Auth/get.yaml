@@ -4,6 +4,7 @@ summary: Get Google OAuth URL
 description: |
   Get the URL where users can log in via Google OAuth.
   Once the user is authenticated with Google, they will be redirected to your application.
+security: []
 responses:
   '200':
     description: Successfully fetched Google OAuth URL.

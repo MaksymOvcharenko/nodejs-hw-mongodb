@@ -2,6 +2,7 @@ tags:
   - Auth
 summary: Logout user
 operationId: logoutUser
+security: []
 description: 'Logout the current user and clear session cookies.'
 responses:
   '204':

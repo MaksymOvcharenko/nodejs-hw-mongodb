@@ -2,6 +2,7 @@ tags:
   - Auth
 summary: Login user
 operationId: loginUser
+security: []
 description: 'Authenticate a user with email and password.'
 requestBody:
   required: true

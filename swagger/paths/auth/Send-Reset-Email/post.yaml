@@ -2,6 +2,7 @@ tags:
   - Auth
 summary: Request password reset token
 operationId: requestResetToken
+security: []
 description: 'Send an email to the user with instructions to reset their password.'
 requestBody:
   required: true

@@ -7,7 +7,7 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   description: ContactsApp for saved or changed, contacts. We have auth, and we found only contacts, which you created. Please use this App!
 servers:
-  - url: http://localhost:3000
+  - url: https://nodejs-hw-mongodb-1uw2.onrender.com/
 paths:
   /contacts/{id}:
     get:

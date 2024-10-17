@@ -2,6 +2,7 @@ tags:
   - Auth
 summary: Reset user password
 operationId: resetPassword
+security: []
 description: 'Reset the user password using a valid token.'
 requestBody:
   required: true

@@ -23,7 +23,7 @@ requestBody:
             example: 'john.doe@example.com'
           password:
             type: string
-            example: 'SecurePassword123!'
+            example: 'Password'
 responses:
   '201':
     description: Successfully registered user

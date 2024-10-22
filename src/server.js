@@ -16,7 +16,7 @@ export const setupServer = () => {
 
   app.use(express.json());
   const corsOptions = {
-    origin: 'http://localhost:5173/', // Домен твого фронтенду на Vercel
+    origin: 'http://localhost:5173', // Домен твого фронтенду на Vercel
     credentials: true, // Дозволяє передавати куки
   };
   app.use(cors(corsOptions));

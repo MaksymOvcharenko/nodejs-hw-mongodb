@@ -15,7 +15,12 @@ export const setupServer = () => {
   const app = express();
 
   app.use(express.json());
-  app.use(cors());
+  const corsOptions = {
+    origin: 'https://yourapp.vercel.app', // Домен твого фронтенду на Vercel
+    credentials: true, // Дозволяє передавати куки
+  };
+  app.use(cors(corsOptions));
+
   app.use(cookieParser());
 
   app.use(

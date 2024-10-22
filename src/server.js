@@ -33,7 +33,7 @@ export const setupServer = () => {
 
   app.get('/', (req, res) => {
     res.json({
-      message: 'Please enter /contacts for url!',
+      message: 'Please enter /contacts for url! Thanks',
     });
   });
   app.use('/uploads', express.static(UPLOAD_DIR));
